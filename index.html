@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    html, body {
+      height: 100%;
+    }
+    html {
+      background-color: #333;
+      background-size: cover;
+      background-repeat: no-repeat;
+      overflow: hidden; 
+    }
+    body {
+      color: white;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1em;
+    }
+    #content {
+      height: 80%;
+      overflow-y: auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    a {
+      color: orange;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      padding: 0.75em ;
+    }
+    h1, h2, h3, p, a {
+      background: rgba(0,0,0,0.8);
+      padding: 0.5em;
+    }
+  </style>
+  <h1>MetalRain</h1>
+  <div id="content">
+    <h2>About</h2>
+    <p>Software Engineer with focus on web services. Interested in functional programming, information security.</p> 
+    <h2>Links</h2>
+    
+      <h3>Me</h3>
+      <ul>
+        <li>
+          <a href="https://github.com/MetalRain">GitHub</a>
+        </li>
+        <li>
+          <a href="https://fi.linkedin.com/in/otto-martikainen-70134335">LinkedIn</a>
+        </li>
+        <li>
+          <a href="http://www.last.fm/user/MMetalRain">Last.fm</a>
+        </li>
+      </ul>
+   
+   
+      <h3>Cool pages</h3>
+      <ul>
+        <li>
+          <a href="https://news.ycombinator.com/news">Hacker News</a>
+        </li>
+        <li>
+          <a href="https://medium.com">Medium</a>
+        </li>
+        <li>
+          <a href="http://www.newyorker.com">The New Yorker</a>
+        </li>
+        <li>
+          <a href="http://arstechnica.com">Ars Technica</a>
+        </li>
+        <li>
+          <a href="http://asofterworld.com">A softer world</a>
+        </li>
+      </ul>
+  
+  </div>
+  <script>
+  (function(){
+    var urls = [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Behind_an_Old_Factory.jpg/1280px-Behind_an_Old_Factory.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/0/03/Usine_abandonn%C3%A9e.JPG',
+      'https://upload.wikimedia.org/wikipedia/commons/3/3d/Dilapidated_Soviet_Factory_-_panoramio.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/2/27/Rust_old_metal.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/c/c4/Metal_stair_in_the_Rocks_Sydney.jpg'
+    ];
+    var url = urls[~~(Math.random()*urls.length)];
+    document.documentElement.style.backgroundImage = "url('" + url + "')";
+  }());
+  </script>
+</html>
