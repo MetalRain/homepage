@@ -27,10 +27,10 @@ showQuoted :: (Show a) => a -> String
 showQuoted = quotes . show
 
 startTag :: String -> String
-startTag = wrapWith "<" ">\n"
+startTag = wrapWith "<" ">"
 
 closeTag :: String -> String
-closeTag = wrapWith "</" ">\n"
+closeTag = wrapWith "</" ">"
 
 docType :: String -> String
 docType = wrapWith "<!DOCTYPE " ">\n"
@@ -39,7 +39,7 @@ showMany :: (Show a) => String -> [a] -> String
 showMany sep xs = intercalate sep (map show xs)
 
 instance Show Element where
-  show (TextNode value) = (show value) <> "\n"
+  show (TextNode value) = (show value)
   show (Element (Name name) attrs children) = start <> content <> close where
     start   = startTag $ intercalate " " (name : map show attrs)
     content = showMany "" children

@@ -3,6 +3,7 @@ module EasyHTML
     , el
     , attr
     , text
+    , textContent
     , html
     , body
     , head
@@ -18,6 +19,9 @@ module EasyHTML
     , span
     , input
     , img
+    , h1
+    , h2
+    , h3
     ) where
 
 import Prelude hiding (head, div, span)
@@ -29,6 +33,9 @@ html5 root = (docType "html") <> (show root)
 
 text :: String -> Element
 text str = TextNode (Value str)
+
+textContent :: String -> [Element]
+textContent str = [ text str ]
 
 el :: String -> [Element] -> Element
 el tag = mkElement tag []
@@ -80,3 +87,12 @@ input = el "input"
 
 img :: [Element] -> Element
 img = el "img"
+
+h1 :: [Element] -> Element
+h1 = el "h1"
+
+h2 :: [Element] -> Element
+h2 = el "h2"
+
+h3 :: [Element] -> Element
+h3 = el "h3"
