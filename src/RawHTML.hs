@@ -3,8 +3,10 @@ module RawHTML
     , Value(..)
     , Attr(..)
     , Element(..)
+    , ElementType(..)
     , mkAttr
     , mkElement
+    , mkVoidElement
     , docType
     ) where
 
@@ -14,7 +16,8 @@ import Data.List
 newtype Name = Name String
 newtype Value = Value String
 data Attr = Attr Name Value
-data Element = Element Name [Attr] [Element] 
+data ElementType = Void | Content
+data Element = Element ElementType Name [Attr] [Element]
              | TextNode Value
 
 wrapWith :: String -> String -> String -> String
@@ -40,7 +43,9 @@ showMany sep xs = intercalate sep (map show xs)
 
 instance Show Element where
   show (TextNode value) = (show value)
-  show (Element (Name name) attrs children) = start <> content <> close where
+  show (Element Void (Name name) attrs children) = start where
+    start   = startTag $ intercalate " " (name : map show attrs)
+  show (Element Content (Name name) attrs children) = start <> content <> close where
     start   = startTag $ intercalate " " (name : map show attrs)
     content = showMany "" children
     close   = closeTag name
@@ -58,4 +63,7 @@ mkAttr :: String -> String -> Attr
 mkAttr k v = Attr (Name k) (Value v)
 
 mkElement :: String -> [Attr] -> [Element] -> Element
-mkElement tag = Element (Name tag)
+mkElement tag = Element Content (Name tag)
+
+mkVoidElement :: String -> [Attr] -> [Element] -> Element
+mkVoidElement tag = Element Void (Name tag)

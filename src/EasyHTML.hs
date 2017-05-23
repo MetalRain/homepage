@@ -10,6 +10,7 @@ module EasyHTML
     , script
     , style
     , link
+    , meta
     , div
     , ul
     , ol
@@ -40,8 +41,11 @@ textContent str = [ text str ]
 el :: String -> [Element] -> Element
 el tag = mkElement tag []
 
+voidEl :: String -> [Element] -> Element
+voidEl tag = mkVoidElement tag []
+
 attr :: String -> String -> Element -> Element
-attr name value (Element tag attrs children) = Element tag ((mkAttr name value) : attrs) children
+attr name value (Element elType tag attrs children) = Element elType tag ((mkAttr name value) : attrs) children
 
 html :: [Element] -> Element
 html = el "html"
@@ -56,7 +60,7 @@ script :: [Element] -> Element
 script = el "script"
 
 link :: [Element] -> Element
-link = el "link"
+link = voidEl "link"
 
 style :: [Element] -> Element
 style = el "style"
@@ -83,10 +87,10 @@ span :: [Element] -> Element
 span = el "span"
 
 input :: [Element] -> Element
-input = el "input"
+input = voidEl "input"
 
 img :: [Element] -> Element
-img = el "img"
+img = voidEl "img"
 
 h1 :: [Element] -> Element
 h1 = el "h1"
@@ -96,3 +100,6 @@ h2 = el "h2"
 
 h3 :: [Element] -> Element
 h3 = el "h3"
+
+meta :: [Element] -> Element
+meta = voidEl "meta"

@@ -4,7 +4,7 @@ import Prelude hiding (head, div, span)
 import RawHTML(Element)
 import EasyHTML as EH
 
-description = "Software Engineer focused to Web services, interested in functional programming, information security and learning new stuff."
+description = "Software Engineer focused in web services, interested in functional programming, information security and learning new stuff. Likes to cook and play video games."
 
 profileLinks = [ ("https://github.com/MetalRain", "GitHub")
                , ("https://fi.linkedin.com/in/otto-martikainen-70134335", "LinkedIn")
@@ -25,7 +25,9 @@ linkList links = EH.ul (map linkItem links)
 buildDoc :: String -> String -> String
 buildDoc style script = EH.html5 doc where
     doc     = (EH.attr "lang" "en") $ EH.html [docHead, docBody]
-    docHead = EH.head [ EH.style [ EH.text style ] ]
+    docHead = EH.head [ (EH.attr "charset" "UTF-8") $ EH.meta []
+                      , EH.style [ EH.text style ]
+                      ]
     docBody = EH.body [ EH.h1 [ EH.text "MetalRain" ]
                    , (EH.attr "id" "content") $ EH.div content
                    , EH.script $ EH.textContent script
