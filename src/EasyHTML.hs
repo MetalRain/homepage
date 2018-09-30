@@ -23,6 +23,8 @@ module EasyHTML
     , h1
     , h2
     , h3
+    , section
+    , header
     ) where
 
 import Prelude hiding (head, div, span)
@@ -103,3 +105,9 @@ h3 = el "h3"
 
 meta :: [Element] -> Element
 meta = voidEl "meta"
+
+section :: [Element] -> Element
+section = el "section"
+
+header :: [Element] -> Element
+header = el "header"

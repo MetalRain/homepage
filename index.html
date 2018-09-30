@@ -1,25 +1,43 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><style>html, body {
-  height: 100%;
-}
-html {
+<html lang="en"><head><meta charset="UTF-8"><style>html {
+  color: white;
   background-color: #333;
-  background-size: cover;
-  background-repeat: no-repeat;
-  overflow: hidden; 
 }
 body {
-  color: white;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 1em;
+  overflow: auto;
 }
-#content {
-  height: 80%;
-  overflow-y: auto;
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("bg.jpg");
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  top: -1px;
+  left: -1px;
+  z-index: -1;
+}
+.content {
+  margin: 0 auto;
+  max-width: 800px;
+}
+header, section {
+  background: rgba(0,0,0,0.8);
+  margin: 1rem;
+}
+header {
+  margin: 3rem 1rem;
+  padding: 1rem;
+}
+section {
+  margin-bottom: 3rem;
+  padding: 1rem 2rem;
 }
 h1 {
   text-align: center;
+  margin: 0;
 }
 a {
   color: orange;
@@ -28,21 +46,10 @@ ul {
   list-style: none;
   padding: 0;
 }
-li {
-  padding: 0.75em ;
+li, p {
+  padding-left: 0.75em;
 }
-h1, h2, h3, p, a {
-  background: rgba(0,0,0,0.8);
-  padding: 0.5em;
+h2, p, li {
+  padding-bottom: 0.5em;
 }
-</style></head><body><h1>MetalRain</h1><div id="content"><h2>About</h2><p>Software Engineer focused in web services, interested in functional programming, information security and learning new stuff. Likes to cook and play video games.</p><h2>Links</h2><h3>Me</h3><ul><li><a href="https://github.com/MetalRain">GitHub</a></li><li><a href="https://fi.linkedin.com/in/otto-martikainen-70134335">LinkedIn</a></li><li><a href="http://www.last.fm/user/MMetalRain">Last.fm</a></li></ul><h3>Cool pages</h3><ul><li><a href="https://news.ycombinator.com/news">Hacker News</a></li><li><a href="https://medium.com">Medium</a></li><li><a href="http://asofterworld.com">A softer world</a></li></ul></div><script>(function(){
-  var urls = [
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Behind_an_Old_Factory.jpg/1280px-Behind_an_Old_Factory.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/0/03/Usine_abandonn%C3%A9e.JPG',
-    'https://upload.wikimedia.org/wikipedia/commons/3/3d/Dilapidated_Soviet_Factory_-_panoramio.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/2/27/Rust_old_metal.jpg',     'https://upload.wikimedia.org/wikipedia/commons/c/c4/Metal_stair_in_the_Rocks_Sydney.jpg'
-  ];
-  var url = urls[~~(Math.random()*urls.length)];
-  document.documentElement.style.backgroundImage = "url('" + url + "')";
-}());
-</script></body></html>
+</style></head><body><div class="background"></div><div class="content"><header><h1>MetalRain</h1></header><section><h2>About</h2><p>Software engineer and computer enthusiast. Interested in programming languages, history of computing and learning new stuff.</p><p>Likes to cook without recipes and get immersed in virtual worlds.</p><h2>Links</h2><ul><li><a href="https://github.com/MetalRain">GitHub</a></li><li><a href="https://fi.linkedin.com/in/otto-martikainen">LinkedIn</a></li></ul></section></div></body></html>
