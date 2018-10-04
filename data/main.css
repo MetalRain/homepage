@@ -1,6 +1,7 @@
 html {
   color: white;
   background-color: #333;
+  font-family: 'Roboto', sans-serif;
 }
 body {
   overflow: auto;
@@ -37,6 +38,9 @@ section {
 h1 {
   text-align: center;
   margin: 0;
+  font-size: 2.5rem;
+  font-weight: normal;
+  letter-spacing: 0.1rem; 
 }
 a {
   color: orange;
@@ -46,8 +50,8 @@ ul {
   padding: 0;
 }
 li, p {
-  padding-left: 0.75em;
-}
-h2, p, li {
-  padding-bottom: 0.5em;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  letter-spacing: 0.02rem;
+  line-height: 1.25rem;
 }

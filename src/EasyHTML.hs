@@ -43,7 +43,7 @@ textContent str = [ text str ]
 el :: String -> [Element] -> Element
 el tag = mkElement tag []
 
-voidEl :: String -> [Element] -> Element
+voidEl :: String -> Element
 voidEl tag = mkVoidElement tag []
 
 attr :: String -> String -> Element -> Element
@@ -61,7 +61,7 @@ body = el "body"
 script :: [Element] -> Element
 script = el "script"
 
-link :: [Element] -> Element
+link :: Element
 link = voidEl "link"
 
 style :: [Element] -> Element
@@ -88,10 +88,10 @@ a = el "a"
 span :: [Element] -> Element
 span = el "span"
 
-input :: [Element] -> Element
+input :: Element
 input = voidEl "input"
 
-img :: [Element] -> Element
+img :: Element
 img = voidEl "img"
 
 h1 :: [Element] -> Element
@@ -103,7 +103,7 @@ h2 = el "h2"
 h3 :: [Element] -> Element
 h3 = el "h3"
 
-meta :: [Element] -> Element
+meta :: Element
 meta = voidEl "meta"
 
 section :: [Element] -> Element

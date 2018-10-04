@@ -4,6 +4,8 @@ import Prelude hiding (head, div, span)
 import RawHTML(Element)
 import EasyHTML as EH
 
+styleSheets = [ "https://fonts.googleapis.com/css?family=Roboto" ]
+
 aboutMe = [ "Software engineer and computer enthusiast. Interested in programming languages, history of computing and learning new stuff."
           , "Likes to cook without recipes and get immersed in virtual worlds."
           ]
@@ -21,9 +23,10 @@ linkList links = EH.ul (map linkItem links)
 buildDoc :: String -> String
 buildDoc style = EH.html5 doc where
     doc     = (EH.attr "lang" "en") $ EH.html [docHead, docBody]
-    docHead = EH.head [ (EH.attr "charset" "UTF-8") $ EH.meta []
-                      , EH.style [ EH.text style ]
-                      ]
+    docHead = EH.head $ [ (EH.attr "charset" "UTF-8") $ EH.meta
+                        , EH.style [ EH.text style ]
+                        ]
+                        ++ map (\href -> (EH.attr "href" href $ EH.attr "rel" "stylesheet" $ EH.link)) styleSheets
     docBody = EH.body [ EH.attr "class" "background" $ EH.div []
                       , EH.attr "class" "content" $ EH.div [ header, content ]
                       ]

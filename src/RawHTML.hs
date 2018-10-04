@@ -65,5 +65,5 @@ mkAttr k v = Attr (Name k) (Value v)
 mkElement :: String -> [Attr] -> [Element] -> Element
 mkElement tag = Element Content (Name tag)
 
-mkVoidElement :: String -> [Attr] -> [Element] -> Element
-mkVoidElement tag = Element Void (Name tag)
+mkVoidElement :: String -> [Attr] -> Element
+mkVoidElement tag attrs = Element Void (Name tag) attrs []
