@@ -1,16 +1,15 @@
 # Homepage
 
+Little exercise of making HTML builder with Haskell.
+http://metalra.in
 
 ## Build
 
-```
-$ stack setup
-```
-
-```
-$ stack build
+```sh
+stack setup
+stack build
+stack exec homepage-exe > index.html
 ```
 
-```
-$ stack exec homepage-exe > index.html
-```
+## Deploy
+

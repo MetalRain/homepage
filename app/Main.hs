@@ -4,9 +4,9 @@ import Prelude hiding (head, div, span)
 import RawHTML(Element)
 import EasyHTML as EH
 
-styleSheets = [ "https://fonts.googleapis.com/css?family=Roboto" ]
+styleSheets = []
 
-aboutMe = [ "Software engineer and computer enthusiast. Interested in programming languages, history of computing and learning new stuff."
+aboutMe = [ "Software engineer and computer enthusiast. Interested in programming languages, history and future of computing."
           , "Likes to cook without recipes and get immersed in virtual worlds."
           ]
 
@@ -34,7 +34,7 @@ buildDoc style = EH.html5 doc where
     header = EH.header [ title ]
     content = EH.section $ about ++ links
 
-    title = EH.h1 $ EH.textContent "MetalRain"
+    title = EH.h1 $ EH.textContent "Otto Martikainen"
     about  = [ EH.h2 $ EH.textContent "About" ] ++ (map (\s -> EH.p $ EH.textContent s) aboutMe)
     links = [ EH.h2 $ EH.textContent "Links", linkList profileLinks ]
 
